@@ -1,0 +1,45 @@
+Cookies in NODE.js :
+
+res.cookie() : is a method in Express.js that is used to set cookies in the HTTP response. It allows you to store small 
+               pieces of data in a user's browser, which can be used for authentication, session management, or tracking user preferences
+
+        Syntax :
+
+            res.cookie(name, value, [options])
+
+                1> name: The name of the cookie.
+                2> value: The value of the cookie (can be a string or object).
+                3> options: An optional object to configure the cookie's behavior.
+
+
+        Common Options: Option	Description -> 
+
+        1> maxAge	Expiration time in milliseconds (e.g., maxAge: 3600000 for 1 hour).
+        2> expires	Sets a specific expiration date for the cookie.
+        3> httpOnly	Prevents client-side JavaScript from accessing the cookie (true for security).
+        4> secure	Ensures the cookie is only sent over HTTPS.
+        5> sameSite	Controls cross-site cookie behavior ('Strict', 'Lax', or 'None').
+        6> domain	Specifies the domain for which the cookie is valid.
+        7> path	Defines the URL path where the cookie is accessible.
+        8> signed	Signs the cookie to prevent tampering (requires cookie-parser with a secret).
+
+
+        EX : 
+
+                const express = require('express');
+                const app = express();
+
+                app.get('/set-cookie', (req, res) => {
+
+                    res.cookie('token', '123456', { httpOnly: true, maxAge: 3600000 }); 
+                res.send('Cookie has been set');
+                });
+
+                app.get('/get-cookie', (req, res) => {
+                console.log(req.cookies); // Requires cookie-parser middleware
+                res.send(req.cookies);
+                });
+
+                app.listen(3000, () => {
+                console.log('Server running on port 3000');
+                });

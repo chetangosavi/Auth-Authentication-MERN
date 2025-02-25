@@ -1,0 +1,39 @@
+Step 1: Setup MERN Project :
+    1. Backend Setup (Node.js + Express + MongoDB)
+        First, create a folder for your project and initialize a Node.js backend.
+            mkdir mern-auth
+            cd mern-auth
+            mkdir backend frontend
+            cd backend
+            npm init -y
+
+    2. Install Required Dependencies
+        Run the following command inside the backend folder:
+            -> npm install express mongoose bcryptjs jsonwebtoken dotenv cors cookie-parser
+
+        1> express → Web framework for Node.js
+        2> mongoose → MongoDB ODM (Object Data Modeling)
+        3> bcryptjs → Password hashing
+        4> jsonwebtoken (JWT) → Token-based authentication
+        5> dotenv → Load environment variables
+        6> cors → Allow cross-origin requests
+        7> cookie-parser → Handle cookies
+
+    3. Create Backend Structure
+        Inside backend, create these folders and files:
+
+        backend/
+        │── node_modules/
+        │── config/
+        │   ├── db.js
+        │── models/
+        │   ├── userModel.js
+        │── routes/
+        │   ├── authRoutes.js
+        │── middleware/
+        │   ├── authMiddleware.js
+        │── controllers/
+        │   ├── authController.js
+        │── .env
+        │── server.js
+        │── package.json
